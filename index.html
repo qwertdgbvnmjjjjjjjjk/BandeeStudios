@@ -4,33 +4,188 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bandee Studios – Hyper-Realistic Roblox Shooters</title>
+  <meta name="description" content="A Roblox game development studio crafting hyper-realistic shooter experiences with advanced viewmodels, recoil, netcode, and VFX.">
+  <meta property="og:title" content="Bandee Studios – Hyper-Realistic Roblox Shooters">
+  <meta property="og:description" content="We build AAA-feeling shooters on Roblox: advanced viewmodels, recoil simulation, ballistics, and buttery-smooth UX.">
+  <meta name="theme-color" content="#0ef" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <span class="logo-badge"></span>
+        <span class="logo-badge" aria-hidden="true"></span>
         <span>Bandee Studios</span>
       </a>
+      <nav class="nav-links" aria-label="primary">
+        <a href="#work">Showcase</a>
+        <a href="#features">Features</a>
+        <a href="#tech">Tech</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
     </div>
+    <nav id="mobileNav" hidden class="container" style="padding:0 0 12px">
+      <div class="glass" style="padding:10px 12px; display:grid; gap:8px">
+        <a href="#work">Showcase</a>
+        <a href="#features">Features</a>
+        <a href="#tech">Tech</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero container">
       <div class="hero-grid">
         <div>
-          <h1 class="title">We craft <span class="stroke">hyper-realistic</span> shooter games on Roblox.</h1>
-          <p class="lead">From AAA-style viewmodels and recoil to robust netcode and cinematic VFX—we build Roblox shooters that feel AAA.</p>
+          <div class="eyebrow">Roblox Game Development Studio</div>
+          <h1 class="title">We craft <span class="stroke">hyper‑realistic</span> shooter games on Roblox.</h1>
+          <p class="lead">From AAA‑style viewmodels and physically‑based recoil to robust netcode and cinematic VFX—we turn your FPS concept into a polished, scalable Roblox experience.</p>
+          <div class="cta-bar">
+            <a class="btn" href="#contact">Start a project</a>
+            <a class="cta-ghost" href="#work">See our work →</a>
+          </div>
+          <div class="chips">
+            <span class="chip">• 1ms‑stable springs</span>
+            <span class="chip">• FastCast ballistics</span>
+            <span class="chip">• Anti‑cheat ready</span>
+          </div>
         </div>
         <div class="glass hero-media" id="parallax">
+          <!-- Placeholder "video" frame; drop in a YouTube embed or MP4 later -->
+          <svg viewBox="0 0 800 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-label="Showcase frame">
+            <defs>
+              <linearGradient id="grad" x1="0" x2="1">
+                <stop offset="0%" stop-color="#0ef" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#7afcff" stop-opacity="0.6"/>
+              </linearGradient>
+              <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect x="0" y="0" width="800" height="500" fill="#0e1525"/>
+            <g filter="url(#glow)">
+              <rect x="42" y="42" width="716" height="416" rx="16" fill="none" stroke="url(#grad)" stroke-width="3"/>
+              <g fill="#0ef" opacity="0.85">
+                <circle cx="140" cy="240" r="4"/>
+                <circle cx="160" cy="240" r="4"/>
+                <rect x="180" y="224" width="260" height="32" rx="8"/>
+              </g>
+            </g>
+          </svg>
           <div class="hud">
             <span class="tag">Sway + ADS</span>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Features -->
+    <section id="features" class="container">
+      <h2>What makes our shooters feel AAA?</h2>
+      <p class="section-lead">We obsess over tactile response, weight, and readability—then engineer it to scale for thousands of players.</p>
+      <div class="features" id="featureGrid">
+        <article class="card tilt"><h3>Advanced Viewmodels</h3><p>Critically‑damped sway, circular mouse sway, idle bob, shoulder shifting, and realistic sprint transitions.</p></article>
+        <article class="card tilt"><h3>Ballistics & Netcode</h3><p>FastCast‑powered traces, client‑predicted feel with authoritative server checks, lag compensation, and replication safety.</p></article>
+        <article class="card tilt"><h3>Recoil & Camera</h3><p>Physically‑based recoil springs, controlled ADS zoom, camera kick/return, and per‑weapon tuning curves.</p></article>
+        <article class="card tilt"><h3>Hit Feedback</h3><p>Clean hitmarkers, damage numbers, contextual VFX (blood/gib), decals, and audio layering that reads.</p></article>
+        <article class="card tilt"><h3>UX & HUD</h3><p>Minimal, legible HUD with latency‑safe crosshair, ammo/health clarity, and accessibility by default.</p></article>
+        <article class="card tilt"><h3>Content Pipeline</h3><p>Modular Luau architecture, hot‑swappable weapons, content flags, profile‑guided performance.</p></article>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tech" class="container">
+      <h2>Tech we use on Roblox</h2>
+      <p class="section-lead">Roblox‑native, no heavy dependencies. Everything tuned for mobile and desktop.</p>
+      <div class="stack">
+        <span class="chip">Luau Modules</span>
+        <span class="chip">RunService Pipelines</span>
+        <span class="chip">FastCast</span>
+        <span class="chip">RaycastParams</span>
+        <span class="chip">AnimationController</span>
+        <span class="chip">CollectionService</span>
+        <span class="chip">Memory‑safe VFX</span>
+      </div>
+    </section>
+
+    <!-- Gallery / Work -->
+    <section id="work" class="container">
+      <h2>Recent work & prototypes</h2>
+      <p class="section-lead">Drop your screenshots or video thumbnails here. Each tile can open a case study.</p>
+      <div class="gallery">
+        <div class="g-item tilt"></div>
+        <div class="g-item tilt"></div>
+        <div class="g-item tilt"></div>
+        <div class="g-item tilt"></div>
+        <div class="g-item tilt"></div>
+        <div class="g-item tilt"></div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="container">
+      <h2>Production roadmap</h2>
+      <div class="timeline">
+        <div class="step">
+          <div class="dot" aria-hidden="true"></div>
+          <div><strong>Pitch & Scope</strong><div class="when">Week 1</div><p class="section-lead">Mechanics goals, content scale, success metrics.</p></div>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <div><strong>Prototype & Feel</strong><div class="when">Weeks 2‑3</div><p class="section-lead">Core loop, recoil, ADS, movement reads.</p></div>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <div><strong>Content & Netcode</strong><div class="when">Weeks 4‑6</div><p class="section-lead">Weapons, enemies, maps, replication hardening.</p></div>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <div><strong>Polish & Launch</strong><div class="when">Weeks 7‑8</div><p class="section-lead">VFX, audio pass, UX cleanup, performance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h2>Let’s build your shooter</h2>
+      <p class="section-lead">Tell us about your idea—scope, inspirations, target platforms. We reply within 24h.</p>
+      <div class="glass" style="padding:16px">
+        <form id="contactForm" class="container form-grid">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" required type="email" placeholder="name@example.com" />
+          </div>
+          <div class="form-group full">
+            <label for="msg">Project details</label>
+            <textarea id="msg" name="message" rows="5" required placeholder="Mechanics, references, timeline…"></textarea>
+          </div>
+          <button class="btn" type="submit">Send message</button>
+          <p id="formNote" class="section-lead" style="margin:6px 0 0; display:none"></p>
+        </form>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© <span id="year"></span> Bandee Studios</div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

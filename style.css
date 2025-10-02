@@ -1,13 +1,102 @@
 :root{
-  --bg-1:#070b12; --bg-2:#0a0f1b; --card:#0e1525aa;
-  --text:#dfe7ff; --brand:#0ef; --accent:#7afcff;
+  --bg-1:#070b12; --bg-2:#0a0f1b; --card:#0e1525aa; --stroke:#2a3346;
+  --text:#dfe7ff; --muted:#9cb0d6; --brand:#0ef; --accent:#7afcff; --hot:#ff3d72;
 }
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-  margin:0; font-family:sans-serif; color:var(--text);
-  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  margin:0; font-family:'Outfit',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
+  color:var(--text);
+  background:radial-gradient(1000px 600px at 20% -10%, #0ef2 0, #0000 60%),
+             radial-gradient(800px 500px at 120% 10%, #7afcff22 0, #0000 60%),
+             linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  overflow-x:hidden; letter-spacing:.2px;
 }
-.hero{padding:64px 0; text-align:center}
-.title{font-size:2rem; font-weight:bold}
-.stroke{color:transparent; -webkit-text-stroke:1px var(--accent)}
-.glass{border:1px solid #0ef; border-radius:8px; padding:20px}
-.hud .tag{border:1px solid #0ef; padding:6px 10px; border-radius:8px}
+/* grid texture */
+body:before{content:""; position:fixed; inset:0; pointer-events:none; background:
+  linear-gradient(transparent 31px, #ffffff10 32px),
+  linear-gradient(90deg, transparent 31px, #ffffff10 32px);
+  background-size:32px 32px; -webkit-mask:linear-gradient(#000 50%, #0000);
+  mask:linear-gradient(#000 50%, #0000);
+  animation:gridShift 30s linear infinite; z-index:0}
+@keyframes gridShift{from{transform:translateY(0)} to{transform:translateY(32px)}}
+
+a{color:var(--brand); text-decoration:none}
+.container{width:min(1100px, 92%); margin-inline:auto}
+
+/* Navbar */
+.nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(8px); background:#0a0f1bcc; border-bottom:1px solid #ffffff10}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+.logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.6px}
+.logo-badge{width:28px; height:28px; border-radius:8px; background:conic-gradient(from 0deg, var(--brand), var(--accent), var(--hot), var(--brand)); filter:drop-shadow(0 0 10px #0ef6)}
+.nav-links{display:flex; gap:20px}
+.nav-links a{color:var(--text); opacity:.9}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid #0ef6; border-radius:12px; color:#001018; background:linear-gradient(180deg,#7afcff,#0ef); font-weight:700; text-shadow:0 1px #ffffff40; box-shadow:0 8px 24px #0ef3; transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.menu{display:none}
+
+/* Hero */
+.hero{position:relative; padding:64px 0 40px; isolation:isolate}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+.eyebrow{font-weight:600; color:var(--accent); letter-spacing:.16em; text-transform:uppercase}
+.title{margin:.3em 0; font-size:clamp(32px, 6vw, 60px); line-height:1.02; font-weight:800}
+.title .stroke{color:transparent; -webkit-text-stroke:1.2px var(--accent); text-shadow:0 0 14px #7afcff80}
+.lead{color:var(--muted); font-size:clamp(16px, 2.2vw, 18px)}
+.cta-bar{display:flex; gap:14px; margin-top:22px; flex-wrap:wrap}
+.cta-ghost{padding:10px 14px; border:1px solid var(--stroke); border-radius:12px; color:var(--text); background:#0e152580}
+.chips{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+
+/* Showcase card */
+.glass{position:relative; border:1px solid #ffffff1a; background:linear-gradient(180deg,#0e1525bb,#0a0f1bbb); border-radius:18px; box-shadow:inset 0 1px 0 #ffffff22, 0 20px 60px #0008; overflow:hidden}
+.hero-media{aspect-ratio:16/10; display:grid; place-items:center}
+.hud{position:absolute; inset:auto 14px 14px 14px; border:1px solid #ffffff1f; background:#0a0f1bcc; padding:10px 12px; border-radius:12px; font-family:monospace; font-size:12px; display:flex; gap:10px; flex-wrap:wrap}
+.tag{padding:6px 10px; border-radius:10px; border:1px solid #ffffff22; background:#0e1525cc}
+
+/* Sections */
+section{padding:64px 0}
+h2{font-size:clamp(26px,4.5vw,34px); margin:0 0 10px}
+p.section-lead{color:var(--muted); margin:0 0 24px}
+
+.features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.card{padding:18px; border:1px solid #ffffff14; background:var(--card); border-radius:16px; transition:transform .2s ease, box-shadow .2s ease}
+.card:hover{transform:translateY(-4px); box-shadow:0 10px 30px #0ef1}
+.card h3{margin:6px 0 8px; font-size:18px}
+.chip{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid #ffffff1f; border-radius:999px; font-size:12px; color:var(--muted)}
+
+.stack{display:flex; gap:10px; flex-wrap:wrap}
+
+/* Gallery */
+.gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:12px}
+.g-item{grid-column:span 4; height:180px; border-radius:14px; border:1px solid #ffffff17; background:linear-gradient(135deg,#0e1525,#151e33); position:relative; overflow:hidden}
+.g-item:after{content:"Preview"; position:absolute; right:10px; bottom:10px; font-size:12px; color:#ffffff80}
+
+/* Roadmap */
+.timeline{display:grid; gap:12px}
+.step{display:grid; grid-template-columns:100px 1fr; gap:14px; align-items:start}
+.dot{width:12px; height:12px; border-radius:999px; background:var(--brand); box-shadow:0 0 20px #0ef8}
+.when{color:var(--muted)}
+
+/* Contact form */
+.form-grid{display:grid; gap:10px}
+.form-group{display:grid; gap:6px}
+.form-group.full{grid-column:1/-1}
+input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #ffffff22; background:#0a0f1b; color:var(--text)}
+input:focus, textarea:focus{outline:2px solid #0ef8; border-color:#0ef6}
+
+/* Footer */
+footer{border-top:1px solid #ffffff10; padding:32px 0 60px; color:#9fb2d6}
+.footer-wrap{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+.footer-links{display:flex; gap:12px}
+
+/* Responsive */
+@media (max-width: 960px){
+  .hero-grid{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr 1fr}
+  .g-item{grid-column:span 6}
+  .nav-links{display:none}
+  .menu{display:inline-flex}
+}
+@media (max-width: 600px){
+  .features{grid-template-columns:1fr}
+  .g-item{grid-column:span 12}
+}
