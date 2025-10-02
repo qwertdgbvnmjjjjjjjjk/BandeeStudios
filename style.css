@@ -1,0 +1,13 @@
+:root{
+  --bg-1:#070b12; --bg-2:#0a0f1b; --card:#0e1525aa;
+  --text:#dfe7ff; --brand:#0ef; --accent:#7afcff;
+}
+body{
+  margin:0; font-family:sans-serif; color:var(--text);
+  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+}
+.hero{padding:64px 0; text-align:center}
+.title{font-size:2rem; font-weight:bold}
+.stroke{color:transparent; -webkit-text-stroke:1px var(--accent)}
+.glass{border:1px solid #0ef; border-radius:8px; padding:20px}
+.hud .tag{border:1px solid #0ef; padding:6px 10px; border-radius:8px}
